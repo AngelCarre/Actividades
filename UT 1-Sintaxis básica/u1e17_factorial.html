@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u1e17_factorial - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+        function factorialIter(numero) {
+            var resultado = 1;
+            if (numero > 0) {
+
+                for (var i = numero; i > 0; i--) {
+                    resultado = resultado * i;
+
+                    console.log(resultado);
+
+                }
+            }
+            console.log(resultado);
+        }
+
+        function factorialRecur(numero) {
+            if (numero <= 1) return 1;
+            return numero * factorialRecur(numero - 1);
+        }
+
+    </script>
+
+</body>
+
+</html>

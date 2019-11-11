@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e04_palindromo - Ángel Carretón</title>
+</head>
+<body>
+    
+    <script>
+
+        var cadena = prompt("introduce una cadena").toLowerCase().trim();
+        isPalindromo(cadena);
+
+        function isPalindromo(cadena){
+
+            cadena= cadena.replace(/ /g,"");
+            
+            var arrayUno = cadena.split("");
+            var arrayDos = cadena.split("").reverse();
+
+            var palindromo = true;
+            var i=0;
+            while(palindromo==true&&i<arrayUno.length){
+                if(arrayUno[i]!=arrayDos[i]){
+                    palindromo=false;
+                }
+                i++;
+            }
+
+            if(palindromo==true){
+                document.write("es palíndromo");
+            }else{
+                document.write("no es palíndromo");
+            }
+        }
+    
+    </script>
+
+</body>
+</html>

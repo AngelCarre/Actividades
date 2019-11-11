@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos - Información eventos ratón y teclado</title>
+
+
+    <script>
+        window.addEventListener("click", mostrarInformacion);
+        window.addEventListener("mousemove", mostrarInformacion);
+        window.addEventListener("keydown", mostrarInformacion);
+
+        function mostrarInformacion(e) {
+           
+            var evento = window.event.type;
+            
+            switch(evento){
+                case 'click':
+                
+                document.getElementById("raton").style.background = "#FFFFCC";
+                break;
+
+                case 'mousemove':
+                document.getElementById("raton").style.background = "white";
+                document.getElementById("teclado").style.background = "white";
+
+                var xV = window.event.clientX;
+                var yV = window.event.clientY;
+                var xN = window.event.pageX;
+                var yN = window.event.pageY;
+
+                document.getElementById("ratoninfo").innerHTML = "Navegador [" + xN + ", " + yN + "]<br>Página [" + xV + ", " + yV + "]";
+                break;
+
+                case 'keydown': 
+                document.getElementById("teclado").style.background = "#CCE6FF";
+                document.getElementById("tecladoinfo").innerHTML = "Caracter [" + e.key + "]<br>Código [" + e.code + "]";
+            
+                break;
+            }
+
+        }
+
+
+    </script>
+
+    <style>
+        .box {
+            font-family: 'Courier New', Courier, monospace;
+            border: 2px solid gray;
+            width: 200px;
+            height: 150px;
+            padding: 0px 0px 10px 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="raton" class="box">
+        <h1>Ratón</h1>
+        <div id="ratoninfo">
+
+        </div>
+    </div>
+    <div id="teclado" class="box">
+        <h1>Teclado</h1>
+        <div id="tecladoinfo">
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u3e05_vector - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+    
+    class Vector{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+
+        sumar(vector2){
+           var x= this.x + vector2.x;
+           var y= this.y + vector2.y;
+            return new Vector(x,y);
+        }
+
+        restar(vector2){
+           var x= this.x - vector2.x;
+           var y= this.y - vector2.y;
+            return new Vector(x,y);
+        }
+
+        longitud(){
+            var longitud = Math.sqrt( Math.pow(this.x ,2) +  Math.pow(this.y ,2));
+            return longitud;
+        }
+
+    }
+
+    console.log(new Vector(1, 2).sumar(new Vector(2, 3)));
+// → Vector{x: 3, y: 5}
+console.log(new Vector(1, 2).restar(new Vector(2, 3)));
+// → Vector{x: -1, y: -1}
+console.log(new Vector(3, 4).longitud());
+// → 5
+
+
+    
+    </script>
+    
+</body>
+</html>

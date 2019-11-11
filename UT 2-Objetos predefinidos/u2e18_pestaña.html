@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e18_pestaña - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <div class="botón" id="crear"><h2>Crear Ventana</h2></div>
+    <div class="botón" id="cerrar"><h2>Cerrar Ventana</h2></div>
+
+    <script>
+        document.getElementById("crear").addEventListener( "click", crearVentana);
+        document.getElementById("cerrar").addEventListener( "click", cerrarVentana);
+      
+        var miVentana = undefined;
+        
+        function crearVentana() {
+           
+            if(miVentana === undefined){
+                ventana = prompt("Introduce la url a la que quieres acceder");
+                miVentana = window.open(ventana);
+            }else{
+                alert("Ya se ha creado una ventana");
+            }
+               
+            
+        }
+
+        function cerrarVentana(){
+            if( miVentana === undefined|| miVentana.closed){
+                alert("No hay ninguna ventana abierta");
+            }else{
+                miVentana.close();
+               miVentana = undefined;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

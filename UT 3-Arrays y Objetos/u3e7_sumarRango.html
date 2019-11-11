@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u3e7_sumarRango - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+        function rango(inicio, fin) {
+            var array = [];
+
+            for (var i = inicio; i <= fin; i++) {
+                array.push(i);
+            }
+
+            return array;
+        }
+
+        console.log(rango(4, 20));
+
+        function suma(array) {
+            var suma = 0;
+            array.forEach(recorrer);
+
+            function recorrer(valor, i) {
+                suma += valor;
+            }
+
+            return suma;
+        }
+
+        console.log(suma(rango(4, 20)));
+
+        function rango2(inicio, fin, paso = 1) {
+            var array = [];
+            
+            if (paso > 0) {
+                for (var i = inicio; i <= fin; i += paso) {
+                    array.push(i);          
+                }
+            }
+
+            if (paso<0){
+                for (var i = inicio; i >= fin; i += paso) {
+                    array.push(i);
+                }
+
+            }
+            
+            if(array.length ==0 || paso == 0){
+                return "Parámetros mal introducidos";
+            }
+
+            return array;
+        }
+
+        console.log(rango2(4, 20, 2));
+        console.log(rango2(40, 20, 2));
+        console.log(rango2(5, 1, -1));
+        console.log(rango2(4, 20, -2));
+        console.log(rango2(4, 20, 0));
+
+    </script>
+
+</body>
+
+</html>

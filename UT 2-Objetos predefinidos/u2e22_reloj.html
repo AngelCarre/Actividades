@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e22_reloj - Ángel Carretón</title>
+</head>
+
+<body>
+    <p id="hora"></p>
+
+
+    <script>
+        
+
+        function hora() {
+            var fecha = new Date();
+
+            var horas = "";
+            var horaActual = fecha.getHours();
+            if (horaActual < 10) {
+                horas = "0" + horaActual;
+            } else {
+                horas = horaActual ;
+            }
+
+            var minutos = "";
+            var minutosActual = fecha.getMinutes();
+            if ( minutosActual < 10) {
+                minutos = "0" +  minutosActual;
+            } else {
+                minutos =  minutosActual;
+            }
+
+            var segundos = "";
+            var segActual = fecha.getSeconds();
+            if (segActual < 10) {
+                segundos = "0" + segActual;
+            } else {
+                segundos = segActual;
+            }
+
+            var salida = horas + ":" + minutos + ":" + segundos;
+            
+            document.getElementById("hora").innerHTML=salida;
+        }
+
+        setInterval(hora, 1000);
+
+    </script>
+</body>
+
+</html>

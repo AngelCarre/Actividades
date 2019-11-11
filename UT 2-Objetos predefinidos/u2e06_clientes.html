@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e06_clientes - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+        var clientes = [["Laura", "Santander", 50], ["Álvaro", "Castro", 50], ["Igor", "Castro", 60], ["Ivan", "Santander", 40],
+        ["Mónica", "Zamora", 30], ["Javi", "Bilbao", 30], ["David", "Bilbao", 50], ["José Luis", "Bilbao", 60]];
+        do{
+            var entrada = prompt("Elige una opción: \n1: Muestra tabla con todos los valores \n2: Clientes de una localidad \n3: Clientes con cuota mayor");
+        }while(entrada<1||entrada>3);
+        
+        switch (entrada) {
+            case "1":
+                var titulo = ["Cliente", "Localidad", "Cuota"];
+                mostrarEnTabla(clientes, titulo);
+                break;
+
+            case "2":
+                var localidad = prompt("Localidad: ");
+                var titulo = ["Cliente", "Cuota"];
+                clientesLocalidad(clientes, localidad, titulo);
+                break;
+
+            case "3":
+                var cuota = prompt("Cuota: ");
+                var titulo = ["Cliente", "Localidad", "Cuota"];
+                cuotaMayor(clientes, cuota, titulo);
+
+                break;
+        }
+
+        function mostrarEnTabla(array, titulo) {
+
+            var salida = "<table border=1> ";
+            for (var i = -1; i < array.length; i++) {
+                salida += "<tr>";
+                for (var j = 0; j < titulo.length; j++) {
+                    if (i == -1) {
+
+                        salida += "<th>" + titulo[j] + "</th>";
+
+                    } else {
+                        salida += "<td>" + array[i][j] + "</td>";
+                    }
+                }
+                salida += "</tr>";
+
+            }
+            salida += "</table>";
+
+            document.write(salida);
+
+        }
+
+        function clientesLocalidad(array, localidad, titulo) {
+
+            var arraySalida = [];
+
+            for (var i = 0; i < array.length; i++) {
+
+                if (array[i][1].toUpperCase() == localidad.toUpperCase()) {
+
+                    arraySalida.push([array[i][0], array[i][2]]);
+                }
+            }
+            if (arraySalida.length > 0) {
+                document.write("<b>Clientes de " + localidad + "</b>");
+                mostrarEnTabla(arraySalida, titulo);
+            } else {
+                document.write("<b>NO HAY CLIENTES DE " + localidad.toUpperCase() + "</b>");
+            }
+        }
+
+        function cuotaMayor(array, cuota, titulo) {
+            var arraySalida = [];
+
+            for (var i = 0; i < array.length; i++) {
+
+                if (array[i][2] > cuota) {
+
+                    arraySalida.push([array[i][0], array[i][1], array[i][2]]);
+                }
+            }
+            ;
+            if (arraySalida.length > 0) {
+                document.write("<b>Clientes con cuota mayor de " + cuota + "</b>");
+                mostrarEnTabla(arraySalida, titulo);
+            } else {
+                document.write("<b> No hay clientes con cuota mayor de " + cuota + "</b>");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

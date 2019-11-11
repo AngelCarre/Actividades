@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>u3e02_coche - Ángel Carretón</title>
+</head>
+<body>
+    
+    <script>
+    
+    var coche =  {
+        color: "Blanco",
+        marca: "audi",
+        modelo: "A3",
+        arrancado: false,
+        cambiarEstado(){
+            if(this.arrancado==false){
+                this.arrancado =true;
+                console.log("Coche arrancado");
+            }else{
+                this.arrancado=false;
+                console.log("Coche detenido");
+            }
+        },
+
+        mostrarDatos(){
+            var estado ="";
+            if(this.arrancado==true){
+                estado="arrancado";
+            }else{
+                estado="detenido";
+            }
+            
+            console.log("Marca: "+this.marca+"\nModelo: "+this.modelo+"\nColor: "+this.color+"\nEstado: "+estado);
+        }
+
+    }
+    
+    </script>
+
+</body>
+</html>

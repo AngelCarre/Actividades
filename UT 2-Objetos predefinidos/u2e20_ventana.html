@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e20_ventana - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <button id="crear">CREAR</button>
+    <button id="cerrar">CERRAR</button>
+    <button id="activar">ACTIVAR</button>
+    <button id="mover100">MOVER A 100 X 100</button>
+    <br>
+    <button id="mover_izda">MOVER HACIA LA IZQUIERDA</button>
+    <button id="mover_dcha">MOVER HACIA LA DERECHA</button>
+    <br>
+    <button id="mover_abajo">MOVER HACIA ABAJO</button>
+    <button id="mover_arriba">MOVER HACIA ARRIBA</button>
+    <button id="escribir">ESCRIBIR</button>
+    <br>
+    <button id="restaurar">RESTAURAR TAMAÑO</button>
+    <button id="aumentar">AUMENTAR TAMAÑO</button>
+    <br>
+    <button id="disminuir">DISMINUIR TAMAÑO</button>
+    <button id="escribir2">ESCRIBIR TEXTO</button>
+    <button id="bajar">BAJAR</button>
+    <button id="subir">SUBIR</button>
+
+    <script>
+
+        document.getElementById("crear").addEventListener("click", crearVentana);
+        document.getElementById("cerrar").addEventListener("click", cerrarVentana);
+        document.getElementById("activar").addEventListener("click", activar);
+        document.getElementById("mover100").addEventListener("click", mover100);
+        document.getElementById("mover_izda").addEventListener("click", moverIzda);
+        document.getElementById("mover_dcha").addEventListener("click", moverDcha);
+        document.getElementById("mover_abajo").addEventListener("click", moverAbajo);
+        document.getElementById("mover_arriba").addEventListener("click", moverArriba);
+        document.getElementById("escribir").addEventListener("click", escribir);
+        document.getElementById("restaurar").addEventListener("click", restaurarTamaño);
+        document.getElementById("aumentar").addEventListener("click", aumentarTamaño);
+        document.getElementById("disminuir").addEventListener("click", reducirTamaño);
+        document.getElementById("escribir2").addEventListener("click", escribir2);
+        document.getElementById("bajar").addEventListener("click", bajar);
+        document.getElementById("subir").addEventListener("click", subir);
+
+        var miVentana = undefined;
+        function crearVentana() {
+            miVentana = window.open("", "miVentana", "width= 200, height=100");
+        }
+
+        function cerrarVentana() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.close();
+
+            }
+        }
+        function activar() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.focus();
+            }
+        }
+        function mover100() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.moveTo(100, 100);
+            }
+        }
+        function moverIzda() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.moveBy(-10, 0);
+            }
+        }
+        function moverDcha() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.moveBy(10, 0);
+            }
+        }
+        function moverArriba() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.moveBy(0, -10);
+            }
+        }
+        function moverAbajo() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.moveBy(0, 10);
+            }
+        }
+        function escribir() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.document.write("Hola<br>");
+            }
+        }
+        function restaurarTamaño() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.resizeTo(100, 100);
+            }
+        }
+        function aumentarTamaño() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.resizeBy(10, 10);
+            }
+        }
+        function reducirTamaño() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.resizeBy(-10, -10);
+            }
+        }
+        function escribir2() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.document.write("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+            }
+
+        }
+        function bajar() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.scrollBy(0, 100);
+            }
+        }
+        function subir() {
+            if (miVentana === undefined || miVentana.closed) {
+                alert("No hay ninguna ventana abierta");
+            } else {
+                miVentana.scrollBy(0, -100);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

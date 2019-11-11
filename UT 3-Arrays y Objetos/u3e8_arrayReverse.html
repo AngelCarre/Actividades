@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u3e8_arrayReverse - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+        var array = [3, 4, 7, 8, 4, 3, 2];
+
+        function reverseArray(array) {
+
+            var arrayDev = [];
+           
+            for (var i = (array.length - 1); i >= 0; i--) {
+            
+                arrayDev.push(array[i]);
+                
+            }
+
+            return arrayDev;
+        }
+
+        console.log(reverseArray(array));
+
+        function reverseArray2(array){
+            var arrayDev = [];
+           
+            for (var i = (array.length - 1); i >= 0; i--) {
+            
+                arrayDev.push(array[i]);
+                
+            }
+
+            array = arrayDev;
+            
+            return array;
+
+        }
+        console.log(reverseArray2(array));
+
+
+    </script>
+
+</body>
+
+</html>

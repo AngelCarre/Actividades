@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>u1e04_area - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+
+        do{
+            var figura  =  prompt ("¿Con qué figura deseas trabajar? "+"\n"+"'S' para cuadrado "+"\n"+ "'T' para triángulo "+"\n"+ "'C' para círculo").toUpperCase();
+        }while(figura!="S"&&figura!="T"&&figura!="C");
+        
+        if(figura=="S"){
+            var lado = prompt("Escribe el lado del cuadrado");
+            var area = lado*lado;
+            var perimetro = lado*4;
+            document.write("Lado: "+lado+"<br>Área del cuadrado: "+ area +"<br>Perímetro del cuadrado: "+perimetro);
+
+        }else if(figura=="T"){
+            var base = prompt("Escribe la base del triángulo");
+            var altura = prompt("Escribe la altura del triángulo");
+            var area = (base*altura)/2;
+            document.write("Base: "+base+"<br>Altura: "+altura+"<br>Área del triangulo: "+ area);
+            
+        }else if(figura=="C"){
+            var radio = prompt("Escribe el radio del círculo");
+             var area = Math.PI * radio * radio;
+            var perimetro = Math.PI * radio *2;
+            document.write("Radio: "+radio+"<br>Área del círculo: "+ area +"<br>Perímetro del círculo: "+perimetro);
+        } 
+
+    </script>
+    
+</body>
+</html>

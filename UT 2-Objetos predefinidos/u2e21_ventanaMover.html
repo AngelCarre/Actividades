@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e21_ventanaMover - Ángel Carretón</title>
+</head>
+
+<body>
+
+
+    <script>
+        var miVentana = window.open("", "miVentana", "width= 300, height=200");
+        miVentana.document.write("<p id=\"parrafo\"></p>");
+
+
+        var v = window.setInterval(desplazar, 1000);
+        window.setTimeout( () => { //funcion flecha
+            window.clearInterval(v);
+            miVentana.close();
+        },120000);
+        
+        function desplazar() {
+
+            var x = Math.random() * miVentana.screen.width;
+            var y = Math.random() * miVentana.screen.height;
+
+            var posicion = "<h1>X: " + x + "<br>Y: " + y + "</h1>";
+            miVentana.moveTo(x, y);
+            miVentana.document.getElementById("parrafo").innerHTML = posicion;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u3e04_discos - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+class Disco {
+            constructor(nombre="", grupo="", añoPubli="", genero="", localizacion=0) {
+                this.nombre = nombre;
+                this.grupo = grupo;
+                this.añoPubli = añoPubli;
+                this.genero = genero;
+                this.localizacion = localizacion;
+                this.prestado = false
+            }
+
+            cambiarLocalizacion(estanteria) {
+                this.localizacion = estanteria;
+            }
+
+
+            cambiarEstado() {
+                if (this.prestado == false) {
+                    this.prestado = true;
+                    alert("Disco Prestado");
+                } else {
+                    this.prestado = false;
+                    alert("Disco devuelto");
+                }
+            }
+
+            mostrarDatos() {
+                var estado = "";
+                if (this.prestado == true) {
+                    estado = "prestado";
+                } else {
+                    estado = "no prestado";
+                }
+                alert("Nombre del disco: " + this.nombre + "\nGrupo: " + this.grupo + "\nAño: " + this.añoPubli + "\nGénero: " + this.genero + "\nLocalización: Estantería " +this.localizacion+ "\nEstado: " + estado);
+            }
+        }
+        
+        var nombre = prompt("Introduce el nombre del disco");
+        var grupo = prompt("Introduce el nombre del grupo o cantante");
+        var año = prompt("Introduce el año de publicación");
+        var genero = prompt("Introduce el género");
+        var localizacion = prompt("Introduce el nº de la estantería");
+
+        var disco = new Disco(nombre, grupo, año, genero, localizacion);
+
+        do{
+            var opcion = parseInt(prompt("Introduce la opción que desees:\n-1 Mostrar la información del disco \n-2 Cambiar de estantería el disco \n-3 Prestar el disco \n-4 Devolver el disco \n-0 Salir"));
+
+        switch(opcion){
+
+            case 1:
+            disco.mostrarDatos();
+
+            break;
+
+            case 2:
+            var nuevaEstantería = parseInt(prompt("Introduce el nuevo número de la estantería"));
+            disco.cambiarLocalizacion(nuevaEstantería);
+
+            break;
+
+            case 3:
+            if(disco.prestado){
+                alert("El disco ya está prestado");
+            }else{
+                disco.cambiarEstado();
+
+            }
+            
+            break;
+
+            case 4:
+            if(!disco.prestado){
+                alert("El disco no está prestado");
+            }else{
+                disco.cambiarEstado();
+
+            }
+
+            break;
+        }
+
+        }while(opcion!=0);
+        
+        
+
+    </script>
+
+</body>
+
+</html>

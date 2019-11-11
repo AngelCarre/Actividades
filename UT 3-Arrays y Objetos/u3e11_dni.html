@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>u3e11_dni - Ángel Carretón</title>
+</head>
+<body>
+    <script>
+    
+    function validarDocumento(documento){
+
+        var valido = true;
+
+        var primerCaracter = documento.toUpperCase().charAt(0);
+        var numeros = documento.substring(1,(documento.length)-1);
+        var letraNif = documento.toUpperCase().charAt((documento.length)-1);
+
+        if(primerCaracter == "X"){
+           primerCaracter = "0";
+        }
+        if(primerCaracter == "Y"){
+           primerCaracter = "1";
+        }
+        if(primerCaracter == "Z"){
+           primerCaracter = "2";
+        }
+
+        var numerosNif = parseInt(primerCaracter+numeros);
+
+        if(documento.length!=9 || isNaN(numerosNif) || letraNif.charCodeAt(0) <65 || letraNif.charCodeAt(0) >90){
+            
+            valido = false;
+        }else{
+            
+            var letra = calcularLetra(numerosNif);
+
+            if(letra != letraNif){
+                valido = false;
+            }
+
+        }
+
+        return valido;
+
+    }
+
+    function calcularLetra(numero){
+
+        var arrayLetras =["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+        var posLetra = numero%23;
+        return arrayLetras[posLetra];
+    }
+
+    console.log(validarDocumento("56221526g"));
+    console.log(validarDocumento("26478436V"));
+    </script>
+    
+</body>
+</html>

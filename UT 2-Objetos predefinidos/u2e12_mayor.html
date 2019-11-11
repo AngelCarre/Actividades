@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e12_mayor - Ángel Carretón</title>
+</head>
+<body>
+
+
+    <script>
+     var array = [232, 56, 33, 878, 988, 398, 100];
+
+     document.write(sacarMayor(array));
+
+     function sacarMayor(array){
+
+         var mayor = array[0];
+
+         for(var i=1; i<array.length; i++){
+             if(array[i]>mayor){
+                mayor = array[i];
+             }
+         }
+
+         return mayor;
+
+     }
+    
+    </script>
+    
+</body>
+</html>

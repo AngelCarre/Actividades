@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e14_cumple - Ángel Carretón</title>
+</head>
+<body>
+
+
+    <script>
+        var fechaActual = new Date();
+
+        var dia = prompt("Introduce el día de tu cumpleaños");
+        var mes = prompt("Introduce el mes (en número) de tu cumpleaños")-1;
+        var año = fechaActual.getFullYear();
+        
+            if(fechaActual.getMonth() > mes ||(fechaActual.getMonth()==mes && fechaActual.getDate()>dia)){
+                año++;
+            }
+   
+        
+        var fechaCumple = new Date(año,mes,dia);
+        
+
+        var ms = fechaCumple-fechaActual;
+        var dd =Math.floor( ms/1000/3600/24);
+        var domingos = 0;
+
+        var limite = new Date(2100,0,1);
+
+        for(var i = fechaCumple.getFullYear(); i<=2100; i++){
+            var nuevoCumple = new Date(i,mes,dia);
+            if(nuevoCumple.getDay()==0){
+                domingos++;
+            }
+
+        }
+
+        document.write("Cumpleaños: "+fechaCumple.toDateString()+"<br>Faltan "+ms+" ms para tu cumpleaños.<br>Faltan "+dd+" días para tu cumpleaños.<br>Caen "+domingos+" cumpleaños en domingo hasta 2100.");
+        
+
+    </script>
+    
+</body>
+</html>

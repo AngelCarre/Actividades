@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u1e05_mediaHora - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+
+        var hora;
+        var min;
+        var salida="";
+
+        for (hora = 9; hora<22; hora++) {
+            
+            for (min = 0; min<60; min = min + 30){
+                if (min.toString().length == 1) {
+                    salida += hora +":0"+min+"<br>";
+                }else {
+                salida += hora +":"+min+"<br>";
+                }
+            }
+
+
+        }
+        document.write(salida);
+    
+    </script>
+    
+</body>
+</html>

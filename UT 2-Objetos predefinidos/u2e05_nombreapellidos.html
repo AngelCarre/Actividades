@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e05_nombreapellidos - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+        var entrada = prompt("Introduce tu nombre y apellidos: ");
+        entrada = entrada.replace(/\s+/g," ");
+        
+        var arrayNombre = entrada.split(" ");
+        if(arrayNombre.length!=3){
+            document.write("Nombre inválido");
+        }else{
+            document.write("Nombre: "+arrayNombre[0]+"<br>Apellido 1: "+arrayNombre[1]+"<br>Apellido 2: "+arrayNombre[2]);
+        document.write("<br>Propuesta nombre de usuario: "+arrayNombre[0].charAt(0).toLowerCase()+arrayNombre[1].toLowerCase()+arrayNombre[2].charAt(0).toLowerCase());
+        
+        document.write("<br>Propuesta nombre de usuario: "+arrayNombre[0].substring(0,3).toLowerCase()+arrayNombre[1].substring(0,3).toLowerCase()+arrayNombre[2].substring(0,3).toLowerCase());
+        }
+        
+
+    </script>
+    
+</body>
+</html>

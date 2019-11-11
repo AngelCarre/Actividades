@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e09_number - Ángel Carretón</title>
+</head>
+<body>
+
+
+    <script>
+        
+        do{
+            var entrada = prompt("Introduce un número entero");
+            var numero = parseInt(entrada);
+
+        }while(entrada!=numero);
+        
+        document.write("valor exponencial "+numero.toExponential()+"<br>");
+        document.write("cuatro decimales "+numero.toFixed(4)+"<br>");
+        document.write("binario "+numero.toString(2)+"<br>");
+        document.write("octal "+numero.toString(8)+"<br>");
+        document.write("hexadecimal "+numero.toString(16)+"<br>");
+    
+    </script>
+    
+</body>
+</html>

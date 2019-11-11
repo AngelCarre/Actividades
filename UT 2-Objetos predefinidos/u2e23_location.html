@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>u2e23_location - Ángel Carretón</title>
+</head>
+<body>
+
+        <input type="text" id="url"/>
+
+        <button id="actualizar">Actualizar</button>
+
+        <iframe name="pruebaIframe" width="600" height="800"> </iframe>
+
+    <script>
+        document.getElementById("actualizar").addEventListener( "click", actualizarURL);
+    
+        function actualizarURL() {
+            var url = "https://"+document.getElementById("url").value;
+            
+            ventana= window.frames[0].window.location.replace(url);
+        }
+    </script>
+    
+</body>
+</html>

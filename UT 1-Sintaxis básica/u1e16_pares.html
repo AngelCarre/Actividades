@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u1e16_pares - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+
+        var numero = Math.abs(prompt("Inrtoduce un número"));
+    
+        if(esPar(numero)){
+            document.write(numero+" es par");
+        }else{
+            document.write(numero+" es impar");
+        }
+
+       function esPar(numero){
+        
+        if(numero<=1){
+            if(numero==0){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return esPar(numero-=2);
+        }
+        
+
+       } 
+    
+    </script>
+    
+</body>
+</html>

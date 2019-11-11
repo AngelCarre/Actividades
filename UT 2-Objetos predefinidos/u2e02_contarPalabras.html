@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e02_contarPalabras - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+
+        var frase = prompt("Introduce una frase:").trim();
+        if(frase==""){
+            document.write("No hay ninguna palabra");
+        }else{
+            var fraseBis = frase.replace(/\s+/g," ").split(" ");
+        
+        document.write("Palabras: "+fraseBis.length);
+
+        }
+       
+    
+    </script>
+    
+</body>
+</html>

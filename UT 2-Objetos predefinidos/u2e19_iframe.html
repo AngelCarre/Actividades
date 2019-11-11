@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e19_iframe - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <iframe 
+    name="pruebaIframe"
+    width="600"
+    height="400"> </iframe>
+
+    <div class="botón" id="crear"><h2>Crear Ventana</h2></div>
+
+    <script>
+
+        document.getElementById("crear").addEventListener("click", crearVentana);
+
+        function crearVentana() {
+            miVentana = window.open("https://www.educa.jcyl.es","pruebaIframe");
+        }
+    </script>
+
+</body>
+
+</html>

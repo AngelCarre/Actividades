@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <title>u3e10_dados - Ángel Carretón</title>
+</head>
+<body>
+
+
+    <script>
+
+        var arrayLanzamientos = [0,0,0,0,0,0,0,0,0,0,0];
+    
+        for(var i = 0; i<=36000; i++){
+            var suma = lanzarDados();
+            arrayLanzamientos[suma-2]++;
+        }
+
+        console.log(arrayLanzamientos);
+
+    function lanzarDados(){
+
+        var dadoUno = Math.ceil(Math.random()*6);
+        var dadoDos = Math.ceil(Math.random()*6);
+       
+        return dadoUno+dadoDos;
+    }
+
+    
+    </script>
+    
+</body>
+</html>

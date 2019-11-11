@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u3e01_cuenta - Ángel Carretón</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        var cuenta = {
+            nombre: "Alex",
+            saldo: 0,
+            ingresar(dinero) {
+                this.saldo += dinero;
+            },
+            extraer(dinero) {
+                this.saldo -= dinero;
+            },
+            informar() {
+            return "Nombre: " + this.nombre + ", Saldo: " + this.saldo;
+        }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

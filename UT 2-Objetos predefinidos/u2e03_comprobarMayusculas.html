@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e03_comprobarMayusculas - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+        var cadena = prompt("Introduce una cadena");
+        comprobarMayusculas(cadena);
+
+        function comprobarMayusculas(cadena) {
+            var may = 0;
+            var min = 0;
+            var i = 0;
+
+            while ((may == 0 || min == 0) && i < cadena.length) {
+
+                if (cadena.charAt(i) != " ") {
+                    if (cadena.charAt(i) == cadena.toUpperCase().charAt(i)) {
+                        may++;
+                    } else {
+                        min++;
+                    }
+                }
+
+                i++;
+            }
+
+            if (may > 0 && min > 0) {
+                document.write("Cadena compuesta por mayúsculas y minúsculas");
+
+            } else if (may > 0) {
+                document.write("Cadena compuesta por mayúsculas");
+
+            } else {
+                document.write("Cadena compuesta por minúsculas");
+
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

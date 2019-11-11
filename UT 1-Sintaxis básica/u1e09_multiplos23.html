@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>u1e09_multiplos23 - Ángel Carretón</title>
+</head>
+<body>
+        <p>LISTADO DE NÚMEROS DEL 1 AL 100</p>
+    <script>
+
+        var salida="";
+    
+    for (var i = 1; i<=100;i++){     
+        
+        salida+= "El " + i;
+
+        if (i%2==0) {
+            salida+= " es múltiplo de 2"
+        }
+        if (i%3==0) {
+            salida+= " es múltiplo de 3"
+        }
+        salida+="<br>";
+    }
+
+    document.write(salida);
+
+    </script>
+
+</body>
+</html>

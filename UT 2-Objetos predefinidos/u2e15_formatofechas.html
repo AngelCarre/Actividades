@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e15_formatofechas - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+    var opcion = prompt("Saca la fecha actual en el formato:\n1- dd/mm/aa\n2- dia, numDia, mes, aa\n3- day, month, dayNum, year");
+    var fecha = new Date();
+    switch(opcion){
+        case "1":  
+        document.write(fecha1(fecha));
+
+        break;
+
+        case "2":
+        document.write(fecha2(fecha));
+
+        break;
+
+        case "3":
+        document.write(fecha3(fecha));
+
+
+        break;
+    }
+
+    function fecha1(fecha){
+        var dia = fecha.getDate();
+
+        var mes ="";
+        if(fecha.getMonth()+1<10){
+            mes = "0"+(fecha.getMonth()+1);
+        }else{
+            mes = fecha.getMonth()+1;
+        }
+        var año = fecha.getFullYear();
+
+        var salida  = dia+"/"+mes+"/"+año;
+
+        return salida;
+
+    }
+
+    function fecha2(fecha){
+        var diasSemana = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
+        var meses =["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+        var diaLetra = diasSemana[fecha.getDay()];
+        var diaNum = fecha.getDate();
+        var mesLetra = meses[fecha.getMonth()];
+        var año = fecha.getFullYear();
+
+        var salida = diaLetra+", "+diaNum+" de "+mesLetra+" de "+año;
+        return salida;
+    }
+
+    function fecha3(fecha){
+        var diasSemana = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+        var meses =["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var diaLetra = diasSemana[fecha.getDay()];
+        var diaNum = fecha.getDate();
+        var mesLetra = meses[fecha.getMonth()];
+        var año = fecha.getFullYear();
+
+        var salida = diaLetra+", "+mesLetra+" "+diaNum+", "+año;
+        return salida;
+
+    }
+    
+    </script>
+
+    
+    
+</body>
+</html>

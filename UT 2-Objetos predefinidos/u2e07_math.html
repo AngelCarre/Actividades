@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e07_math - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+        
+        var entrada = prompt("Elige una opción: \n1: Potencia \n2: Raíz \n3: Redondeo \n4: Trigonometría");
+
+        switch (entrada) {
+            case "1":
+                potencia();
+                break;
+
+            case "2":
+                raiz();
+                break;
+
+            case "3":
+                redondeo();
+                break;
+            
+            case "4":
+                trigonometria();
+                break;
+        }
+
+        function potencia(){
+            var base = prompt("Escribe la base:");
+            var exponente = prompt("Escribe el exponente:");
+            var resultado = Math.pow(base,exponente);
+            document.write("La potencia de "+base+" elevado a "+exponente+" es: "+resultado);
+        }
+
+        function raiz(){
+            do{
+                var numero = prompt("Escribe un número:");
+            }while(numero<0);
+            
+            document.write("La raíz de "+numero+" es "+Math.sqrt(numero));
+        }
+
+        function redondeo(){
+            var numero = prompt("Escribe un número decimal:");
+            document.write("El redondeo del número "+numero+" es:<br>Por abajo: "+Math.floor(numero)+"<br>Por arriba: "+Math.ceil(numero));
+        }
+
+        function trigonometria(){
+            do{
+                var angulo = prompt("Escribe un ángulo entre 0 y 360:");
+            }while(angulo<0 || angulo>360);
+               anguloRad = (angulo*Math.PI)/180;
+
+            document.write("Ángulo: "+angulo+"<br>Seno: "+Math.sin(anguloRad)+"<br>Coseno: "+Math.cos(anguloRad)+"<br>Tangente: "+Math.tan(anguloRad));
+            
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>

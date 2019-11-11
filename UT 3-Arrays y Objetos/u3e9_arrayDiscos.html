@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u3e9_arrayDiscos - Ángel Carretón</title>
+</head>
+
+<body>
+    <h1>DISCOTECA</h1>
+    <h2 id="titulo">MENÚ</h2>
+
+    <div id="datos"></div>
+    <hr>
+
+    <button id="mostrarNumeroDiscos">Mostrar número de discos</button><br>
+    <button id="mostrarDiscoteca">Mostrar listado de discos</button><br>
+    <button id="mostrarIntervalo">Mostrar discos en un intervalo de años</button><br>
+    <button id="anadir">Añadir un disco</button><br>
+    <button id="borrar">Borrar un disco</button><br>
+    <button id="consultar">Consultar un disco</button><br>
+
+
+    <script>
+
+
+        class Disco {
+            constructor(nombre = "", grupo = "", añoPubli = "", genero = "", localizacion = 0) {
+                this.nombre = nombre;
+                this.grupo = grupo;
+                this.añoPubli = añoPubli;
+                this.genero = genero;
+                this.localizacion = localizacion;
+                this.prestado = false
+
+            }
+
+            cambiarLocalizacion(estanteria) {
+                this.localizacion = estanteria;
+            }
+
+
+            cambiarEstado() {
+                if (this.prestado == false) {
+                    this.prestado = true;
+                    alert("Disco Prestado");
+                } else {
+                    this.prestado = false;
+                    alert("Disco devuelto");
+                }
+            }
+
+            mostrarDatos() {
+                var estado = "";
+                if (this.prestado == true) {
+                    estado = "prestado";
+                } else {
+                    estado = "no prestado";
+                }
+
+
+                var datos = (" <tr><td> " + this.nombre + " </td><td> " + this.grupo + " </td><td> " + this.añoPubli + "</td><td>  " + this.genero + "</td><td>  " + this.localizacion + "</td><td>  " + estado + "</td></tr> ");
+
+                return datos;
+            }
+        }
+
+
+        arrayDiscos = [new Disco("Bote", "Proteína", 2019, "pop", 5), new Disco("BReto", "Qwerty", 2013, "rock", 5), new Disco("U2", "U2", 1999, "pop rock", 2), new Disco("Mis grandes éxitos", "Manolo Escobar", 1960, "rumba", 1)];
+
+        document.getElementById("mostrarNumeroDiscos").addEventListener("click", mostrarNumeroDiscos);
+        document.getElementById("mostrarDiscoteca").addEventListener("click", mostrarDiscos);
+        document.getElementById("mostrarIntervalo").addEventListener("click", mostrarIntervalo);
+        document.getElementById("anadir").addEventListener("click", añadirDisco);
+        document.getElementById("borrar").addEventListener("click", borrarDisco);
+        document.getElementById("consultar").addEventListener("click", consultarDisco);
+
+        function mostrarNumeroDiscos() {
+            document.getElementById("titulo").innerHTML = "MOSTRAR Nº DISCOS";
+            datos = ("Tienes almacenados " + arrayDiscos.length + " discos en la biblioteca");
+            document.getElementById("datos").innerHTML = datos;
+
+        }
+
+        function mostrarDiscos() {
+            document.getElementById("titulo").innerHTML = "MOSTRAR DISCOS";
+
+            var opcion = prompt("¿Cómo quieres ordenarlos?\n1-Formato normal\n2-Al revés\n3-Ordenados alfabéticamente");
+            switch (opcion) {
+
+                case "1":
+
+                    var tabla = "<table border =1 style='margin: 0 auto;'> <tr><th>NOMBRE</th><th>GRUPO</th><th>AÑO</th><th>GENERO</th><th>LOCALIZACION</th><th>ESTADO</th><tr>";
+
+                    arrayDiscos.forEach(element => {
+                        tabla += element.mostrarDatos();
+                    });
+                    tabla += "</table>";
+                    document.getElementById("datos").innerHTML = tabla;
+
+                    break;
+
+                case "2":
+                    var tabla = "<table border =1 style='margin: 0 auto;'> <tr><th>NOMBRE</th><th>GRUPO</th><th>AÑO</th><th>GENERO</th><th>LOCALIZACION</th><th>ESTADO</th><tr>";
+
+                    arrayDiscos.reverse();
+
+                    arrayDiscos.forEach(element => {
+                        tabla += element.mostrarDatos();
+                    });
+                    tabla += "</table>";
+                    document.getElementById("datos").innerHTML = tabla;
+
+                    break;
+
+                case "3":
+
+                    var tabla = "<table border =1 style='margin: 0 auto;'> <tr><th>NOMBRE</th><th>GRUPO</th><th>AÑO</th><th>GENERO</th><th>LOCALIZACION</th><th>ESTADO</th><tr>";
+
+                    arrayDiscos.sort(function (a, b) {
+                        if (a.nombre > b.nombre) {
+
+                            return 1;
+                        }
+                        if (a.nombre < b.nombre) {
+                            return -1;
+                        }
+
+                        return 0;
+                    });
+
+                    arrayDiscos.forEach(element => {
+                        tabla += element.mostrarDatos();
+                    });
+                    tabla += "</table>";
+                    document.getElementById("datos").innerHTML = tabla;
+                    break;
+
+            }
+        }
+
+        function mostrarIntervalo() {
+            document.getElementById("titulo").innerHTML = "DISCOS EN UN RANGO DE AÑOS";
+            var intervalo = prompt("Introduce un rago de fechas (inicio-fin)");
+            var posSeparador = intervalo.search("-");
+            var inicio = parseInt(intervalo.substring(0, posSeparador));
+            var final = parseInt(intervalo.substring(posSeparador + 1, intervalo.length));
+
+            if (inicio > final || posSeparador == -1 || isNaN(inicio) || isNaN(final)) {
+                document.getElementById("datos").innerHTML = "Rango incorrecto";
+            } else {
+
+                var tabla = "<table border =1 style='margin: 0 auto;'> <tr><th>NOMBRE</th><th>GRUPO</th><th>AÑO</th><th>GENERO</th><th>LOCALIZACION</th><th>ESTADO</th><tr>";
+
+                arrayDiscos.forEach(element => {
+                    if (element.añoPubli >= inicio && element.añoPubli <= final) {
+                        tabla += element.mostrarDatos();
+                    }
+
+                });
+                tabla += "</table>";
+                document.getElementById("datos").innerHTML = tabla;
+
+            }
+
+
+        }
+
+        function añadirDisco() {
+            document.getElementById("titulo").innerHTML = "AÑADIR DISCO";
+            var nombre = prompt("Introduce el nombre del disco");
+            var grupo = prompt("Introduce el nombre del grupo o cantante");
+            var año = prompt("Introduce el año de publicación");
+            var genero = prompt("Introduce el género");
+            var localizacion = prompt("Introduce el nº de la estantería");
+
+            var disco = new Disco(nombre, grupo, año, genero, localizacion);
+
+            var opcion = prompt("Quieres añadir el disco al principio (1) o al final? (2)");
+            switch (opcion) {
+                case "1":
+
+                    arrayDiscos.push(disco);
+
+                    break;
+
+                case "2":
+
+                    arrayDiscos.reverse();
+                    arrayDiscos.push(disco);
+                    arrayDiscos.reverse();
+
+                    break;
+
+            }
+
+        }
+
+        function borrarDisco() {
+            document.getElementById("titulo").innerHTML = "BORRAR DISCO";
+
+            var opcion = prompt("Quieres borrar el disco al principio (1) o al final? (2)");
+            switch (opcion) {
+                case "1":
+
+                    arrayDiscos.pop();
+
+                    break;
+
+                case "2":
+
+                    arrayDiscos.reverse();
+                    arrayDiscos.pop();
+                    arrayDiscos.reverse();
+
+                    break;
+
+            }
+        }
+
+        function consultarDisco() {
+            document.getElementById("titulo").innerHTML = "CONSULTA DISCO";
+            var opcion = prompt("Quieres consultar el disco por posición (1) o por nombre? (2)");
+            switch (opcion) {
+                case "1":
+
+                    var posicion = parseInt(prompt("")) - 1;
+                    var tabla = "<table border =1 style='margin: 0 auto;'> <tr><th>NOMBRE</th><th>GRUPO</th><th>AÑO</th><th>GENERO</th><th>LOCALIZACION</th><th>ESTADO</th><tr>";
+
+                    tabla += arrayDiscos[posicion].mostrarDatos();
+                    tabla += "</table>";
+
+                    document.getElementById("datos").innerHTML = tabla;
+
+
+                    break;
+
+                case "2":
+
+                    var nombre = prompt("");
+                    var tabla = "<table border =1 style='margin: 0 auto;'> <tr><th>NOMBRE</th><th>GRUPO</th><th>AÑO</th><th>GENERO</th><th>LOCALIZACION</th><th>ESTADO</th><tr>";
+
+                    arrayDiscos.forEach(element => {
+                        if(nombre==element.nombre){
+                             tabla += element.mostrarDatos();
+                        }
+                       
+                    });
+                    tabla += "</table>";
+                    document.getElementById("datos").innerHTML = tabla;
+
+                    break;
+
+            }
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

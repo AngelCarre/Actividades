@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>u1e08_presiNombreApellido - Ángel Carreton</title>
+</head>
+<body>
+
+    <script>
+    
+        
+        var presi = prompt("*CONTROL PARENTAL*"+"\n"+"Introduce el nombre del primer presidente de la Democracia");
+       
+        while(presi!="Adolfo Suárez"){
+
+            if(presi=="Adolfo"){
+            presi =presi+" "+ prompt("****TE FALTA EL APELLIDO****"+"\n"+"Introduce el nombre del primer presidente de la Democracia");
+            }else if(presi=="Suárez"){
+            presi = prompt("****TE FALTA EL NOMBRE****"+"\n"+"Introduce el nombre del primer presidente de la Democracia")+" "+presi;
+            }else {
+           presi = prompt("****ERROR****"+"\n"+"Introduce el nombre del primer presidente de la Democracia");
+            }
+
+        }
+
+        document.write("Acceso permitido");
+    
+    </script>
+    
+</body>
+</html>

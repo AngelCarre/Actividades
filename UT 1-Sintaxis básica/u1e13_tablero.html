@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u1e13_tablero - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+        var salida = "";
+        var columnas = prompt("¿Cuantas columnas?");
+        var filas = prompt("¿Cuantas filas?");
+
+        for (i = 1; i <= filas; i++) {
+
+            if (i % 2 == 0) {
+
+                for (j = 1; j <= columnas; j++) {
+
+                    j % 2 == 0 ?  salida += "#" :  salida += " ";
+
+                }
+
+             } else {
+
+                for (j = 1; j <= columnas; j++) {
+
+                    j % 2 == 0 ?  salida += " " :  salida += "#";
+
+                }
+
+            }
+            salida += "\n";
+        }
+
+
+        console.log(salida);
+
+    </script>
+
+    <p>Script cargado, mira la consola.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u1e19_binario - Ángel Carretón</title>
+</head>
+
+<body>
+    
+    <p>Abre la consola para escribir la función</p>
+
+    <script>
+
+        function binario(num) {
+            var bin = "";
+
+            do {
+                if (num % 2 == 0) {
+                    bin += "0";
+                    num = num / 2;
+                } else {
+                    bin += "1";
+                    num = (num - 1) / 2;
+                }
+
+            } while (num >= 1);
+
+            return invertirString(bin);
+
+        }
+
+        function invertirString(str) {
+            var invertida = "";
+            for (var i = str.length - 1; i >= 0; i--) {
+                invertida += str[i];
+            }
+            return invertida;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

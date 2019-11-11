@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>u2e11_bonoloto - Ángel Carretón</title>
+</head>
+<body>
+
+    <h2>Números de la bonoloto</h2>
+
+    <script>
+    
+    var numeros = [];
+    var repeticion = false;
+    do {
+        repeticion = 0;
+        for (var i = 0; i < 6; i++) {
+            numeros[i] = Math.ceil(Math.random()*50);
+        }
+        
+        for (var i = 0; i < 6; i++) {
+            for (var j = i + 1; j <= 5; j++) {
+                if (numeros[i] == numeros[j]) {
+                    repeticion = true;
+                }
+            }
+        }
+    } while (repeticion);
+
+    mostrarLista(numeros);
+    
+    document.write("Complementario: "+Math.ceil(Math.random()*9));
+
+    function mostrarLista(array)
+    {
+        for (var i = 0; i < array.length; i++) {
+           document.write("Número "+(i+1)+": "+array[i]+"<br>");
+        }
+        document.write("<br>");
+    }
+    
+    </script>
+    
+</body>
+</html>

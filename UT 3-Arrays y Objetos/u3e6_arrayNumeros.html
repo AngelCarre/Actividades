@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u3e6_arrayNumeros . Ángel Carretón</title>
+</head>
+
+<body>
+    <script>
+
+        var array = [];
+
+        for (var i = 0; i < 10; i++) {
+            array[i] = Math.round(Math.random() * 10);
+        }
+
+        function sacarPares(array) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] % 2 == 0) {
+                    console.log(array[i]);
+                }
+            }
+        }
+
+        function sacarParesBis(array) {
+            array.forEach(recorrer);
+            function recorrer(valor, i) {
+                if (valor % 2 == 0) {
+                    console.log(i + ": " + valor);
+                }
+            }
+        }
+
+        function sumarElementos(array){
+            var suma=0;
+            for (var i = 0; i < array.length; i++) {
+                suma += array[i];
+            }
+            console.log(suma);
+        }
+
+        function eliminar(array){
+            array.pop();
+            var num = parseInt(prompt("Introduce otro número"));
+            array.push(num);
+        }
+
+        function sacarMayor(array){
+            var mayor = array[0];
+            array.forEach(recorrer);
+            function recorrer(valor, i) {
+                if (valor>mayor) {
+                    mayor  =valor;
+                }
+            }
+            console.log("El mayor es: "+mayor);
+        }
+
+    </script>
+</body>
+
+</html>

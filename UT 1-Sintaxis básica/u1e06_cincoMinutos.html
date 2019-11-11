@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u1e06_cincoMinutos - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+
+        var hora;
+        var min;
+        var salida="";
+
+        for (hora = 9; hora<22; hora++) {
+            
+            for (min = 0; min<60; min += 5){
+                if(hora==21&&min>30){
+                    break;
+                }
+                
+                salida+=(min.toString().length == 1? (hora +":0"+min+"<br>") : (hora +":"+min+"<br>"));
+            }
+        }
+        document.write(salida);
+    
+    </script>
+    
+</body>
+</html>

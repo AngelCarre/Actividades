@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u3e03_coche - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+        function Coche2(marca, modelo, color) {
+
+            this.marca = marca;
+            this.modelo = modelo;
+            this.color = color;
+            this.arrancado = false;
+
+            this.cambiarEstado = function () {
+                if (this.arrancado == false) {
+                    this.arrancado = true;
+                    console.log("Coche arrancado");
+                } else {
+                    this.arrancado = false;
+                    console.log("Coche detenido");
+                }
+            }
+
+            this.mostrarDatos = function () {
+                var estado = "";
+                if (this.arrancado == true) {
+                    estado = "arrancado";
+                } else {
+                    estado = "detenido";
+                }
+
+                console.log("Marca: " + this.marca + "\nModelo: " + this.modelo + "\nColor: " + this.color + "\nEstado: " + estado);
+            }
+
+        }
+
+
+        class Coche {
+
+            constructor(marca, modelo, color) {
+                this.marca = marca;
+                this.modelo = modelo;
+                this.color = color;
+                this.arrancado = false;
+
+            }
+            cambiarEstado() {
+                if (this.arrancado == false) {
+                    this.arrancado = true;
+                    console.log("Coche arrancado");
+                } else {
+                    this.arrancado = false;
+                    console.log("Coche detenido");
+                }
+            }
+
+            mostrarDatos() {
+                var estado = "";
+                if (this.arrancado == true) {
+                    estado = "arrancado";
+                } else {
+                    estado = "detenido";
+                }
+
+                console.log("Marca: " + this.marca + "\nModelo: " + this.modelo + "\nColor: " + this.color + "\nEstado: " + estado);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

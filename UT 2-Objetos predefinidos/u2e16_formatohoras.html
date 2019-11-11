@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e16_formatohoras - Ángel Carretón</title>
+</head>
+
+<body>
+
+    <script>
+
+        var opcion = prompt("Saca la hora actual en el formato:\n1- hora detallada con minutos y segundos\n2- hora con minutos y AM o PM");
+        var fecha = new Date();
+        switch (opcion) {
+            case "1":
+                document.write(hora1(fecha));
+
+                break;
+
+            case "2":
+                document.write(hora2(fecha));
+
+                break;
+        }
+        function hora1(fecha) {
+            var horas = "" ;
+            if (fecha.getHours() < 10) {
+                horas = "0" + (fecha.getHours());
+            } else {
+                horas = fecha.getHours();
+            }
+
+            var minutos = "";
+            if (fecha.getMinutes() < 10) {
+                minutos = "0" + (fecha.getMinutes());
+            } else {
+                minutos = fecha.getMinutes();
+            }
+
+            var segundos = "";
+            fecha.getSeconds()
+            if (fecha.getSeconds() < 10) {
+                segundos = "0" + (fecha.getSeconds());
+            } else {
+                segundos = fecha.getSeconds();
+            }
+
+            var salida = horas + ":" + minutos + ":" + segundos;
+            return salida;
+        }
+        function hora2(fecha) {
+            var horas = "" ;
+            var meridian ="";
+
+            if (fecha.getHours()>12){
+                horas = fecha.getHours()-12;
+                if (horas < 10) {
+                horas = "0" + horas;
+            }
+                meridian ="PM";
+            }else{
+                horas = fecha.getHours();
+                if (horas < 10) {
+                horas = "0" + horas;
+                }
+                meridian = "AM";
+            }
+            
+
+            var minutos = "";
+            if (fecha.getMinutes() < 10) {
+                minutos = "0" + (fecha.getMinutes());
+            } else {
+                minutos = fecha.getMinutes();
+            }
+
+            var segundos = "";
+            fecha.getSeconds()
+            if (fecha.getSeconds() < 10) {
+                segundos = "0" + (fecha.getSeconds());
+            } else {
+                segundos = fecha.getSeconds();
+            }
+
+            var salida = horas + ":" + minutos + ":" + segundos+" "+meridian;
+            return salida;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e08_circulo  - Ángel Carretón</title>
+</head>
+<body>
+
+    <script>
+        
+        var radio = prompt("Introduce el radio");
+
+        var diametro = radio*2;
+        var perimetro = 2*Math.PI*radio;
+        var areaCirc = Math.PI*radio*radio;
+        var areaEsf = 4*Math.PI*radio*radio;
+        var volumen = (4/3)*Math.PI*radio*radio*radio;
+
+        document.write("Radio: "+radio+" cm<br>");
+        document.write("Diámetro: "+diametro+" cm<br>");
+        document.write("Perimetro: "+perimetro.toFixed(2)+" cm<br>");
+        document.write("Área círculo: "+areaCirc.toFixed(2)+" cm2<br>");
+        document.write("Área esfera: "+areaEsf.toFixed(2)+" cm2<br>");
+        document.write("Volumen: "+volumen.toFixed(2)+" cm3<br>");
+        
+    </script>
+    
+</body>
+</html>

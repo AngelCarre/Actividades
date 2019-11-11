@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>u1e01_tablaMultiplicarV1 - Ángel Carretón</title>
+</head>
+<body>
+    <p id="resultado">Tabla de multiplicar</p>
+
+    <script>
+        var num = 0;
+        
+        do{
+            num = prompt("Introduce un numero entre 1 y 10");
+        }while(num < 0);
+            
+
+            var resultado ="Tabla de multiplicar del "+num+":<br/>";
+        
+        for(var i = 0; i<=10;i++){
+            resultado += num+" x "+i+" = "+(i*num)+"<br/>";
+        }
+        document.getElementById("resultado").innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

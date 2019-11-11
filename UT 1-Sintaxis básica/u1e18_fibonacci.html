@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>u1e18_fibonacci - Ángel Carretón</title>
+</head>
+
+<body>
+<p>Abre la consola para escribir la función que quieras</p>
+    <script>
+        var resultado = 0;
+
+        function fiboRecur(numero) {
+            
+            if (numero == 0) {
+                resultado = 0;
+
+            } else if (numero == 1) {
+                resultado = 1;
+            } else {
+                resultado = fiboRecur(numero - 1) + fiboRecur(numero - 2);
+            }
+            return resultado;
+        }
+
+        function fiboIter(numero){
+            n1 = 0;
+            n2 = 1;
+            resultado = 0;
+            if (x == 0) {
+                resultado = 0;
+
+            } else if (x == 1) {
+                resultado = 1;
+            } else {
+
+                for (let i = 2; i <= x; ++i) {
+
+                    resultado = n1 + n2;
+                    n1 = n2;
+                    n2 = resultado;
+                }
+            }
+
+            return resultado;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

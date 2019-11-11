@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>u1e03_edad - Ángel Carretón</title>
+</head>
+<body>
+    <p id="resultado">Rango de edad</p>
+
+    <script>
+        
+        
+            var edad = prompt("Introduce una edad");
+
+            var resultado;
+        
+        if(edad<0){
+            alert("La edad no es válida");
+        }else if(edad<=12){
+            resultado = ("Niño");
+        }else if(edad<=26){
+            resultado = ("Joven");
+        }else if(edad<=60){
+            resultado = ("Adulto");
+        }else{
+            resultado = ("Jubilado");
+        }
+       
+        document.getElementById("resultado").innerHTML = resultado;
+    </script>
+    
+</body>
+</html>

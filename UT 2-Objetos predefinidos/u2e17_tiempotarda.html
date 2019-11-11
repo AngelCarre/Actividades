@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>u2e17_tiempotarda- Ángel Carretón</title>
+</head>
+<body>
+    <script>
+        
+        var numero = parseInt(prompt("Introduce un número par aprobar las funciones"));
+        calcularTiempos(numero);
+
+        function calcularTiempos(numero){
+            var fechaInitIter= new Date();
+            document.write(fiboIter(numero));
+            var fechaFinIter = new Date();
+
+            var fechaInitRecur= new Date();
+            document.write(fiboRecur(numero));
+            var fechaFinRecur = new Date();
+
+           var tiempoIter = fechaFinIter-fechaInitIter;
+            var tiempoRecur = fechaFinRecur-fechaInitRecur;
+            console.log(fechaInitIter);
+            console.log(fechaFinIter);
+            console.log(fechaInitRecur);
+            console.log(fechaFinRecur);
+
+            document.write("Para el número "+numero+":<br>Tiempo función iterativa: "+tiempoIter+" ms<br>Tiempo función recursiva: "+tiempoRecur+" ms");
+
+
+        }
+
+        var resultado = 0;
+
+function fiboRecur(numero) {
+    
+    
+    if (numero == 0) {
+        resultado = 0;
+
+    } else if (numero == 1) {
+        resultado = 1;
+    } else {
+        resultado = fiboRecur(numero - 1) + fiboRecur(numero - 2);
+    }
+    return resultado;
+}
+
+function fiboIter(numero){
+    n1 = 0;
+    n2 = 1;
+    resultado = 0;
+    if (numero == 0) {
+        resultado = 0;
+
+    } else if (numero == 1) {
+        resultado = 1;
+    } else {
+
+        for (let i = 2; i <= numero; ++i) {
+
+            resultado = n1 + n2;
+            n1 = n2;
+            n2 = resultado;
+        }
+    }
+
+    return resultado;
+}
+
+
+        </script>
+    
+</body>
+</html>
