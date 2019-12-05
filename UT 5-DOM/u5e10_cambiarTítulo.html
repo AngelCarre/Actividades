@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e10_cambiarTítulo</title>
+</head>
+<body>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", iniciar, false);
+
+        function iniciar(){
+            var d = new Date();
+            document.title = 'Prueba: Fecha: '+d.getDate()+'/'+d.getMonth()+'/'+d.getFullYear()+' Hora: '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+
+            
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

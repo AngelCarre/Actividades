@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e6_parrafo</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", iniciar);
+
+        function iniciar() {
+            document.getElementById("crearparrafo").addEventListener("click", anadirParrafo, false);
+        }
+
+        function anadirParrafo() {
+
+            var areaTexto = document.getElementById("areatexto");
+
+            if (areaTexto.value.length > 0) {
+                var parrafo = document.createElement("p");
+                parrafo.textContent = areaTexto.value;
+                areaTexto.value = "";
+                document.querySelector("div").appendChild(parrafo);
+            }else{
+                alert("El area de texto está vacía");
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <textarea id="areatexto"></textarea>
+    <button id="crearparrafo">Crear párrafo</button>
+    <div id="textos"></div>
+</body>
+
+</html>

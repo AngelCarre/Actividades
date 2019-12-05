@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u4e6_expresionesregulares</title>
+</head>
+
+<body>
+
+    <div id="campo">
+
+    </div>
+
+    <script>
+        window.onload = iniciar;
+
+        function iniciar() {
+            document.getElementById("enviar").addEventListener('click', validar, false);
+        }
+
+        function validar(){
+            if(validarFecha() && validarCocinero() && validarDestinatario() && validarGramos() && validarComposicion() && validarCuenta()){
+               document.getElementById("cuentaBuena").textContent = document.getElementById("cuenta").value;
+            }else{
+                alert("Campos no correctos"); 
+            }
+        }
+
+        function validarFecha(){
+            var elemento = document.getElementById("fecha").value;
+            var regExp = /([0-9]{2}[\/]){2}[0-9]{4}$/;
+            return regExp.test(elemento);
+        }
+
+        function validarCocinero(){
+            var elemento = document.getElementById("cocinero").value;
+            var regExp = /^[A-Z]{2}\W[0-9]{4}$/;
+            return regExp.test(elemento);
+        }
+
+        function validarDestinatario(){
+            var elemento = document.getElementById("destinatario").value;
+            var regExp = /^([A-Z]{2}|[A-Z]{3})[\_][a-z]+[\:][0-9]{4}$/;
+            return regExp.test(elemento);
+        }
+
+        function validarGramos(){
+            var elemento = document.getElementById("gramos").value;
+            var regExp = /^[A-Z]{2,3}[\_][a-z]+[\:][0-9]{4}$/;
+            return regExp.test(elemento);
+        }
+
+        function validarComposicion(){
+            var elemento = document.getElementById("composicion").value;
+            var regExp = /^[0-9]{3}g([A-Z][A-Z]?[0-9]?){2}$/;
+            return regExp.test(elemento);
+        }
+
+        function validarCuenta(){
+            var elemento = document.getElementById("cuenta").value;
+            var regExp = /^[a-zA-Z]{2}\d{2}-\d{12}-\d{2}$/;
+            var valido = true;
+            valido = regExp.test(elemento);
+
+            if(valido == true){
+
+                var abecedario = "abcdefghijklmnopqrstuvwxyz";
+
+                var letras = elemento.substring(0,2);
+                var numeros = elemento.substring(2,4);
+                var suma = 0;
+                for(var i = 0; i< letras.length; i++){
+                    for(var j = 0; j< abecedario.length; j++){
+                        if(letras[i] == abecedario[j]){
+                            suma += (j+1);
+                        }
+                    }
+                }
+
+                if(suma.length==1){
+                    suma = "0"+suma;
+                }
+
+                if(suma != numeros){
+                    valido = false;
+                }
+            }
+
+            if(valido == true){
+                
+                var digitosControl1 = elemento.substring(2,4);
+                var digitosControl2 = elemento.substring(18,20);
+                var suma1 = 0;
+                var suma2 = 0;
+
+                for(var i = 5; i<11; i++){
+                    suma1 += elemento[i];
+                }
+                for(var i = 11; i<17; i++){
+                    suma2 += elemento[i];
+                }
+
+                if(digitosControl1 == (Math.trunc(suma1/6)) && digitosControl2 == (Math.trunc(suma2/6)) ){
+                    valido = true;
+                }else{
+                    valido = false;
+                }
+
+            }
+
+            return valido;
+        }
+
+    </script>
+
+
+    <form action="">
+        Fecha: <input type="text" name="fecha" id="fecha" /><br>
+        Cocinero: <input type="text" name="cocinero" id="cocinero" /><br>
+        Destinatario: <input type="text" name="destinatario" id="destinatario" /><br>
+        Gramos: <input type="number" name="gramos" id="gramos" min="100" max="5000"/><br>
+        Composición: <input type="text" name="composicion" id="composicion" /><br>
+        Número de cuenta: <input type="text" name="cuenta" id="cuenta" /><p id="cuentaBuena"></p><br>
+
+
+        <input type="submit" name="enviar" value="Enviar" id="enviar" />
+    </form>
+
+</body>
+
+</html>

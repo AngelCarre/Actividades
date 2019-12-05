@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u4e05_formulario</title>
+    <style>
+        .error {
+            border: solid 2px #FF0000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        window.onload = iniciar;
+
+        function iniciar() {
+            document.getElementById("enviar").addEventListener('click', validar, false);
+        }
+
+        function validar(e) {
+            if (validarStrings()  && validaPubli() && validaEstanteria()) {
+                return true;
+            } else {
+                e.preventDefault();
+                return false;
+            }
+        }
+
+        function validarStrings() {
+            var elementos = [document.getElementById("nombre"), document.getElementById("grupo")];
+
+            for (var i = 0; i < elementos.length; i++) {
+
+                limpiarError(elementos[i]);
+        
+                if (elementos[i].value.length > 20 || elementos[i].value.length == 0) {
+                    alert("Nº Caracteres inválido");
+                    error(elementos[i]);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function validaPubli() {
+            var elemento = document.getElementById("añoPubli");
+            limpiarError(elemento);
+            if (elemento.value.length != 4) {
+                alert("El año debe constar de 4 caracteres");
+                error(elemento);
+                return false;
+            }
+            if (isNaN(elemento.value)) {
+                alert("El campo tiene que estar numérico");
+                return false;
+            }
+            return true;
+        }
+
+        function validaEstanteria() {
+            var elemento = document.getElementById("estanteria");
+            limpiarError(elemento);
+            if (isNaN(elemento.value)) {
+                alert("El campo tiene que ser numérico");
+                return false;
+            }
+            return true;
+        }
+
+        function error(elemento) {
+            elemento.className = "error";
+            elemento.focus();
+        }
+
+        function limpiarError(elemento) {
+            elemento.className = "";
+        }
+
+    </script>
+
+    <form action="procesar.php" method="post" id="miFormulario">
+        Disco: <input type="text" name="nombre" id="nombre" /><br>
+        Grupo: <input type="text" name="grupo" id="grupo" /><br>
+        Año: <input type="number" name="añoPubli" id="añoPubli" /><br>
+        Género: <input type="radio" name="genero" value="rock" checked> Rock
+        <input type="radio" name="genero" value="pop"> Pop
+        <input type="radio" name="genero" value="punk"> Punk
+        <input type="radio" name="genero" value="indie"> Indie<br>
+        Estantería: <input type="number" name="estanteria" id="estanteria" /><br>
+        Prestado: <input type="radio" name="prestado" value="si" />Si
+        <input type="radio" name="prestado" value="no" checked />No<br>
+
+        <input type="submit" name="enviar" value="Enviar" id="enviar" />
+    </form>
+
+</body>
+
+</html>

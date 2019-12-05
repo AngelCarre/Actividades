@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e2_listado</title>
+</head>
+
+<body>
+    <button id="anadir">Añadir elemento</button>
+    <button id="borrarpri">Borrar primer elemento</button>
+    <button id="borrarult">Borrar último elemento</button>
+
+    <ul>
+
+    </ul>
+
+
+    <script>
+        window.onload = iniciar;
+
+        function iniciar() {
+            document.getElementById("anadir").addEventListener("click", anadirElemento, false);
+            document.getElementById("borrarpri").addEventListener("click", borrarPrimerElemento, false);
+            document.getElementById("borrarult").addEventListener("click", borrarUltimoElemento, false);
+        }
+
+
+
+        var lista = document.querySelector("ul");
+
+        function anadirElemento() {
+            var texto = prompt("Introduce un texto");
+            var elemento = document.createElement("li");
+            elemento.textContent = texto;
+            lista.appendChild(elemento);
+        }
+
+        function borrarPrimerElemento() {
+            if (lista.childElementCount == 0) {
+                alert("No se puede borrar porque la lista está vacía");
+            } else {
+                lista.firstChild.remove();
+            }
+
+        }
+
+        function borrarUltimoElemento() {
+            if (lista.childElementCount == 0) {
+                alert("No se puede borrar porque la lista está vacía");
+            } else {
+                lista.lastChild.remove();
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proyecto UT5 - Ángel Carretón</title>
+
+    <style>
+    #tareas{
+        border: 2px solid black;
+        float: left;
+        width: 40%;
+        min-height: 50px;
+        text-align: center;
+    }
+
+    li{
+        border: 1px solid gray;
+        margin-right: 10px;
+    }
+    
+    </style>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", iniciar, false);
+
+function iniciar(){
+    document.getElementById("enviar").addEventListener("click", añadirTarea, false);
+    
+    document.getElementById("eliminar").addEventListener("click", eliminarTareas, false);
+
+    
+}
+var arrayTareas = [];
+
+    function añadirTarea(){
+
+        var nombreTarea = document.getElementById("nombre").value;
+        document.getElementById("nombre").value= "";
+        var listaTareas = document.getElementById("lista");
+        var contadorTareas = Array.from(document.querySelectorAll("li")).length;
+
+        var contenedor = document.createElement("li");
+
+        var tarea = document.createElement("p");
+        tarea.textContent = nombreTarea;
+        tarea.classname = contadorTareas; 
+
+        var boton = document.createElement("button");
+        boton.textContent = "Eliminar tarea";
+        boton.className = contadorTareas;
+        boton.addEventListener("click", eliminarTarea, false);
+
+        contenedor.appendChild(tarea);
+        contenedor.appendChild(boton);
+        listaTareas.appendChild(contenedor);
+
+        arrayTareas.push(nombreTarea);
+
+    }
+
+    function eliminarTarea(){
+
+       var posicion = this.className;
+       var tarea = document.querySelectorAll("li");
+
+       
+       
+       document.querySelector("ul").removeChild(tarea[posicion]);
+       arrayTareas.splice(posicion,1);
+
+    }
+
+    function eliminarTareas(){
+        var tareas = document.querySelector("ul");
+        tareas.textContent = "";
+        arrayTareas = [];
+
+    }
+
+    </script>
+</head>
+<body>
+    <div id="botones">
+            <input type="text" name="nombre" id="nombre">
+            <input type="submit" id="enviar" name="enviar" value="Añadir tarea">
+
+    <button id="eliminar">Eliminar todas las tareas</button>
+    </div>
+    
+    
+    <div id="tareas">
+<h2>Lista de tareas</h2>
+        <ul id="lista">
+
+        </ul>
+    </div>
+</body>
+</html>

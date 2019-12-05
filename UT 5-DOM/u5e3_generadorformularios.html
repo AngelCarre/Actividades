@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e3_generadorformularios</title>
+
+    <style>
+        table {
+            border: 2px solid black;
+        }
+
+        form {
+            border: 2px solid blue;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td><button id="texto">Crear input de texto</button></td>
+            <td><button id="password">Crear input de password</button></td>
+            <td><button id="textarea">Crear area de texto</button></td>
+            <td><button id="label">Crear etiqueta para un texto</button></td>
+            <td><button id="imagen">Crear imagen</button></td>
+            <td><button id="checkbox">Crear checkbox</button></td>
+            <td><button id="radio">Crear radio</button></td>
+            <td><button id="submit">Crear boton submit</button></td>
+        </tr>
+    </table>
+
+    <form id="formulario">
+
+    </form>
+
+    <script>
+
+        window.onload = iniciar;
+
+        function iniciar() {
+            document.getElementById("texto").addEventListener("click", crearTexto, false);
+            document.getElementById("password").addEventListener("click", crearPassword, false);
+            document.getElementById("textarea").addEventListener("click", crearTextArea, false);
+            document.getElementById("label").addEventListener("click", crearLabel, false);
+            document.getElementById("imagen").addEventListener("click", crearImagen, false);
+            document.getElementById("checkbox").addEventListener("click", crearCheckBox, false);
+            document.getElementById("radio").addEventListener("click", crearRadio, false);
+            document.getElementById("submit").addEventListener("click", crearSubmit, false);
+            var formulario = document.getElementById("formulario");
+        }
+
+        function crearTexto() {
+            var name = prompt("Escribe el name para el input");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = name;
+            input.id = name;
+            formulario.appendChild(input);
+        }
+
+        function crearPassword() {
+            var name = prompt("Escribe el name para el input");
+            var input = document.createElement("input");
+            input.type = "password";
+            input.name = name;
+            input.id = name;
+            formulario.appendChild(input);
+        }
+
+        function crearTextArea() {
+            var name = prompt("Escribe el name para el area de texto");
+            var area = document.createElement("textarea");
+            area.name = name;
+            area.id = name;
+            area.rows = "5";
+            area.cols = "40";
+            formulario.appendChild(area);
+        }
+
+        function crearLabel() {
+
+            var referido = prompt("Escribe el nombre al que va a ir referida la etiqueta");
+
+            if (document.getElementsByName(referido).length != 0) {
+
+                var name = prompt("Escribe el name para la etiqueta");
+                var label = document.createElement("label");
+                label.name = name;
+                label.textContent = name;
+                label.htmlFor = referido;
+                label.id = name;
+                formulario.appendChild(label);
+
+            } else {
+                alert("No hay ningún input con ese nombre");
+            }
+
+        }
+
+        function crearImagen() {
+            var name = prompt("Escribe el name para la etiqueta");
+            var ruta = prompt("Escribe la ruta de la imagen");
+
+            var imagen = document.createElement("img");
+            imagen.name = name;
+            imagen.src = "/images/" + ruta + ".png";
+            formulario.appendChild(imagen);
+        }
+
+        function crearCheckBox() {
+            var name = prompt("Escribe el name para el input");
+            var value = prompt("Escribe el value para el input");
+            var input = document.createElement("input");
+            input.type = "checkbox";
+            input.name = name;
+            input.value = value;
+            formulario.appendChild(input);
+        }
+
+        function crearRadio() {
+            var name = prompt("Escribe el name para el input");
+            var value = prompt("Escribe el value para el input");
+            var input = document.createElement("input");
+            input.type = "radio";
+            input.name = name;
+            input.value = value;
+            formulario.appendChild(input);
+        }
+
+        function crearSubmit() {
+            var name = prompt("Escribe el name para el input");
+            var value = prompt("Escribe el value para el input");
+            var input = document.createElement("input");
+            input.type = "submit";
+            input.name = name;
+            input.value = value;
+            formulario.appendChild(input);
+        }
+
+    </script>
+</body>
+
+</html>

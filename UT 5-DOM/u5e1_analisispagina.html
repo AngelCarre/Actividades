@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e1_analisispagina_texto.html</title>
+
+    
+</head>
+
+<body>
+    <div>
+        <p>Ir a: <a href="https://www.google.es/">Google</a> o a <a href="https://www.bing.com/?setlang=es">Bing</a></p>
+        <p>Ir a: <a href="https://es.wikipedia.org/wiki/JavaScript">Wikipedia JavaScript</a></p>
+        <p>Ir a: <a href="/wiki/Municipio">Wikipedia JavaScript</a></p>
+    </div>
+    <div>
+        <h2>Información de la página:</h2>
+        <div id="info"></div>
+    </div>
+
+    <script>
+        
+            /* El número de párrafos de la página.*/
+            var parrafos = document.getElementsByTagName("p").length;
+    
+            /*El texto del segundo párrafo.*/
+            var segundo = document.getElementsByTagName("p")[1].textContent;
+    
+            /*El número de enlaces de la página.*/
+            var enlaces = document.getElementsByTagName("a").length;
+    
+            /*La dirección del primer enlace.*/
+            var dirPrimer = document.querySelector("a").href;
+
+            /*La dirección del penúltimo enlace.*/
+            var longitud = document.querySelectorAll("a").length;
+            var dirPenult = document.querySelectorAll("a")[longitud-2].href;
+
+            /*El número de enlaces que apuntan a /wiki/Municipio*/
+            var enlacesWiki = document.querySelectorAll("a[href='/wiki/Municipio']").length;
+
+            /*El número de enlaces del primer párrafo.*/
+            var enlacesPri = document.querySelectorAll("p")[0].querySelectorAll("a").length;
+    
+    
+            document.getElementById("info").innerHTML ="El número de párrafos de la página: "+ parrafos+"<br>El texto del segundo párrafo: "+segundo+"<br>El número de enlaces de la página: "+enlaces+"<br>La dirección del primer enlace: "+dirPrimer+"<br>La dirección del penúltimo enlace: "+dirPenult+"<br>El número de enlaces que apuntan a /wiki/Municipio: "+enlacesWiki+"<br>El número de enlaces del primer párrafo: "+enlacesPri;
+        </script>
+</body>
+
+
+
+</html>

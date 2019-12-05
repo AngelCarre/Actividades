@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>u5e11_colores</title>
+
+    <style>
+        table {
+            border: 2px solid black;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        div {
+            margin: auto;
+            margin-top: 20px;
+            width: 20%;
+            height: 70px;
+            border: 2px solid black;
+        }
+
+        p {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", iniciar, false);
+
+        var colores = ["black", "white", "red", "blue", "yellow", "cyan", "purple", "lightgray", "gray", "orange", "pink", "olive", "green", "aqua", "teal", "silver", "navy", "fuchsia", "maroon", "lime"];
+
+
+
+        function iniciar() {
+            var tabla = document.querySelector("table");
+
+            for (var i = 0; i < 20; i++) {
+
+                var celda = document.createElement("td");
+                celda.addEventListener("click", mostrarColor, false);
+                celda.id = colores[i];
+                celda.style.backgroundColor = colores[i];
+                celda.width = 50;
+                celda.height = 50;
+                tabla.appendChild(celda);
+            }
+
+        }
+
+        function mostrarColor() {
+            var lienzo = document.querySelector("div");
+            var texto = document.querySelector("p");
+            lienzo.style.backgroundColor = this.id;
+            texto.textContent = "Color elegido: "+this.id;
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <table>
+
+    </table>
+    <span>
+        <div>
+
+        </div>
+
+        <p>
+
+        </p>
+    </span>
+
+</body>
+
+</html>
